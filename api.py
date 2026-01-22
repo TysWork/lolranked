@@ -1,7 +1,7 @@
 import time 
 import requests
 
-API_KEY = YOUR_API_KEY_HERE
+API_KEY = "YOUR_API_KEY_HERE"
 HEADERS = {"X-Riot-Token": API_KEY}
 
 def request_delay(url):
