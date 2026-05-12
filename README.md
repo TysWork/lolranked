@@ -46,11 +46,18 @@ The current pipeline supports:
 - Fetching detailed match data from the Riot Match API
 - Extracting participant-level statistics
 - Storing data in a local SQLite database
-- Exporting the final `player_stats` table to CSV
+- Export raw player stats to `player_stats_export.csv`
+- Create or use a processed analysis file, `ps_export.csv`, with derived metrics for Tableau
 
 ---
 
 ## Data Collected
+### Exported Data Files
+
+The pipeline exports the raw `player_stats` table as:
+
+```text
+player_stats_export.csv
 
 The final player-level dataset includes fields such as:
 
