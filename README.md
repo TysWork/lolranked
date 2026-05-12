@@ -86,6 +86,7 @@ The final player-level dataset includes fields such as:
 ## Project Structure
 
 
+```text
 lolranked/
 ├── api.py                 # Riot API request helper and rate-limit handling
 ├── db.py                  # SQLite connection and database setup
@@ -96,8 +97,10 @@ lolranked/
 ├── collect_ranks.py       # Placeholder for future rank-related logic
 ├── export_db.py           # Export player_stats table to CSV
 ├── lol.ipynb              # Notebook for exploration / analysis
-├──League Ranks.twbx       # Tableau Workbook to visualize stat differences each rank
+├── League Ranks.twbx      # Tableau workbook for visualizing rank stat differences
 └── README.md
+```
+
 ## Tableau Dashboard
 
 A Tableau dashboard was created to visualize ranked League of Legends performance trends across tiers and roles.
