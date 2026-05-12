@@ -17,7 +17,7 @@ The project is designed as a data analytics / data engineering portfolio project
 - Designing a repeatable data collection pipeline
 - Structuring semi-structured JSON data into relational tables
 - Preparing clean data for SQL, Python, and Tableau analysis
-
+  
 ---
 
 ## Business / Analysis Questions
@@ -76,6 +76,9 @@ The final player-level dataset includes fields such as:
 | `towerKills` | Team tower kills |
 
 ---
+## Tableau Visualization
+
+https://public.tableau.com/views/LeagueRanks/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
 
 ## Project Structure
 
@@ -90,4 +93,5 @@ lolranked/
 ├── collect_ranks.py       # Placeholder for future rank-related logic
 ├── export_db.py           # Export player_stats table to CSV
 ├── lol.ipynb              # Notebook for exploration / analysis
+├──League Ranks.twbx       # Tableau Workbook to visualize stat differences each rank
 └── README.md
