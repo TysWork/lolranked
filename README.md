@@ -1,92 +1,93 @@
-# League of Legends Match Data Pipeline (WIP)
+# League of Legends Ranked Stats Pipeline
 
-## Overview
-This repository contains a **work-in-progress data ingestion pipeline** built around the Riot Games League of Legends API.  
-The project focuses on collecting ranked match data, storing it in a structured database, and preparing it for downstream analysis.
+A Python data pipeline for collecting, storing, and analyzing ranked League of Legends match data using the Riot Games API.
 
-The emphasis is on **data engineering fundamentals**: API interaction, rate limiting, structured storage, and incremental development.
+The goal of this project is to compare ranked player performance across tiers from Iron through Diamond by collecting match data, transforming it into a structured database, and preparing it for SQL analysis and dashboard visualization.
 
 ---
 
-## Current Functionality
-At its current stage, the pipeline supports:
+## Project Overview
 
-- Retrieving ranked player identifiers (PUUIDs)
-- Collecting match IDs for individual players
-- Fetching detailed match-level data from the Riot API
-- Persisting match and participant data to a local database
-- Logging progress and handling API rate limits during long runs
+This project collects ranked League of Legends data from the Riot API and stores it locally in SQLite. The pipeline gathers player identifiers, retrieves recent ranked solo queue matches, extracts participant-level match statistics, and exports the final dataset for analysis.
 
-The system is designed to scale gradually from single-player testing to larger ranked datasets.
+The project is designed as a data analytics / data engineering portfolio project, with a focus on:
+
+- Working with a real-world public API
+- Handling API rate limits
+- Designing a repeatable data collection pipeline
+- Structuring semi-structured JSON data into relational tables
+- Preparing clean data for SQL, Python, and Tableau analysis
+
+---
+
+## Business / Analysis Questions
+
+This project is built around the question:
+
+> How do ranked League of Legends performance metrics change as players move from lower ranks to higher ranks?
+
+Some questions this dataset can help answer include:
+
+- How do kills, deaths, assists, and KDA differ by ranked tier?
+- Do higher-ranked players average more gold, CS, and vision score?
+- How does damage to champions vary across ranks?
+- Are objective-related stats such as dragon, baron, and tower kills higher in higher ranks?
+- Which roles show the biggest performance differences between tiers?
+
+---
+
+## Current Features
+
+The current pipeline supports:
+
+- Fetching ranked player PUUIDs by tier and division
+- Collecting ranked solo queue match IDs for each player
+- Sampling matches by tier to create a balanced dataset
+- Fetching detailed match data from the Riot Match API
+- Extracting participant-level statistics
+- Storing data in a local SQLite database
+- Exporting the final `player_stats` table to CSV
+
+---
+
+## Data Collected
+
+The final player-level dataset includes fields such as:
+
+| Column | Description |
+|---|---|
+| `match_id` | Unique Riot match identifier |
+| `tier` | Ranked tier associated with the sampled player |
+| `puuid` | Player unique identifier |
+| `championName` | Champion played |
+| `teamPosition` | Role / position played |
+| `win` | Whether the participant won the match |
+| `gameDuration` | Match duration in seconds |
+| `kills` | Player kills |
+| `deaths` | Player deaths |
+| `assists` | Player assists |
+| `cs` | Total minions + neutral monsters killed |
+| `goldEarned` | Total gold earned |
+| `visionScore` | Player vision score |
+| `damageDealtToChampions` | Total champion damage dealt |
+| `damageDealtToTurrets` | Total turret damage dealt |
+| `baronKills` | Team baron kills |
+| `dragonKills` | Team dragon kills |
+| `towerKills` | Team tower kills |
 
 ---
 
 ## Project Structure
-league/
 
-│
-
-├── api.py # Riot API requests and rate limiting
-
-├── collect_details.py # Match detail collection logic
-
-├── main.py # Pipeline entry point
-
-├── database/ # Database initialization and helpers
-
-├── analysis/ # (Planned) analysis scripts / notebooks
-
+```text
+lolranked/
+├── api.py                 # Riot API request helper and rate-limit handling
+├── db.py                  # SQLite connection and database setup
+├── main.py                # Main pipeline entry point
+├── collect_players.py     # Collect ranked player PUUIDs
+├── collect_matches.py     # Collect match IDs and create tier samples
+├── collect_details.py     # Fetch match details and extract player stats
+├── collect_ranks.py       # Placeholder for future rank-related logic
+├── export_db.py           # Export player_stats table to CSV
+├── lol.ipynb              # Notebook for exploration / analysis
 └── README.md
-
-File organization may evolve as the project matures.
-
----
-
-## Technologies Used
-
-- Python
-- Riot Games API
-- SQLite
-- pandas
-- requests
-
----
-
-## Motivation
-This project was built to gain hands-on experience with:
-
-- Real-world API constraints and pagination
-- Designing repeatable data ingestion workflows
-- Structuring semi-structured data for relational storage
-- Building datasets suitable for SQL-based analysis
-
-The project is intentionally backend-focused rather than visualization-first.
-
----
-
-## Known Limitations
-Because this project is under active development:
-
-- Database schema is subject to change
-- Error handling is incomplete for some edge cases
-- No automated tests are implemented yet
-- Analysis and visualization are not finalized
-
-These limitations are acknowledged and planned for.
-
----
-
-## Planned Improvements
-- Normalize database schema (players, matches, participants)
-- Add SQL-based analysis queries
-- Create exploratory analysis notebooks
-- Introduce basic automated testing
-- Improve documentation and reproducibility
-
----
-
-## Running the Project
-This project is currently intended for local development and experimentation.
-
-```bash
-python main.py
