@@ -33,7 +33,6 @@ def collect_puuids(players):
                         VALUES (?, ?, ?)
                 ''', (puuid, division, tier))
         conn.commit()
-        #cur.execute("SELECT * FROM players LIMIT 20;")
         rows = cur.fetchall()
         for row in rows:
             print(row)
