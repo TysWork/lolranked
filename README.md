@@ -128,9 +128,9 @@ Current Limitations
 
 This project is still in progress. Current limitations include:
 
-API key is currently stored directly in api.py
-Database schema may continue to change
-Some files are still experimental
-Analysis notebook and dashboard are not finalized
-Automated tests have not been added yet
-The collected sample may not perfectly represent the entire ranked player base
+- API key is currently stored directly in api.py
+- Database schema may continue to change
+- Some files are still experimental
+- Analysis notebook and dashboard are not finalized
+- Automated tests have not been added yet
+- The collected sample may not perfectly represent the entire ranked player base
