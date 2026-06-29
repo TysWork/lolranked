@@ -105,7 +105,7 @@ lolranked/
 
 A Tableau dashboard was created to visualize ranked League of Legends performance trends across tiers and roles.
 
-View the dashboard here: [League of Legends Ranked Dashboard](https://public.tableau.com/views/LeagueRanks/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+View the dashboard here: [League of Legends Ranked Dashboard](https://public.tableau.com/views/LeagueofLegendsRankedPerformanceDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 The dashboard focuses on questions such as:
 
