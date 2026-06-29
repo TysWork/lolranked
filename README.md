@@ -20,7 +20,7 @@ The project is designed as a data analytics / data engineering portfolio project
   
 ---
 
-## Business / Analysis Questions
+## Analysis Goals
 
 This project is built around the question:
 
