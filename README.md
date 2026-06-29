@@ -36,6 +36,15 @@ Some questions this dataset can help answer include:
 
 ---
 
+## Key Findings 
+
+- **Core farming and economy metrics improved with rank.** CS per minute and gold per minute generally increased from Iron through diamond, which suggests that higher-ranked players convert time into resources more efficienctly.
+- **Vision control imrpoved across ranks, then began to fall level out.** Average vision score rose from lower ranks into higher ranks, showing more map awareness and vision control among higher-ranked players.
+- **Combat stats were not as linear as economy stats.** While kills and deaths did not trend upwards, assists did. Suggesting that higher ranks are better at team involvement and more optimal decision-making rather than focusing on individual impact.
+- **Objective control peaks at peaks in the middle tier ranks.** Dragon and Baron kills trend upwards, peaking at Gold before dropping at Diamond. This may reflect sample size limitations, role differences, or likely more contested objective setups at higher levels.
+- **Role filtering shows meaningful difference in playstyle.** The dashboard allows users to compare performance metrics by role, highlighting differences in kill participation, vision control, economy, and objective control through all ranks.
+---
+
 ## Current Features
 
 The current pipeline supports:
